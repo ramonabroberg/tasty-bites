@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ewe-el(mk@&#v!v0d$_r06te1ipb%inn7#t1zuh%(z+$brz78p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['8000-ramonabroberg-tasty-bite-exib8bm4yx.us2.codeanyapp.com']
 
 
 # Application definition
