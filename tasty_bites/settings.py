@@ -29,8 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['tasty-bites-rb-427304cf20b7.herokuapp.com/',
-                 '8000-ramonabroberg-tasty-bite-exib8bm4yx.us2.codeanyapp.com']
+ALLOWED_HOSTS = ['tasty-bites-rb-427304cf20b7.herokuapp.com', '8000-ramonabroberg-tasty-bite-exib8bm4yx.us2.codeanyapp.com']
 
 
 # Application definition
