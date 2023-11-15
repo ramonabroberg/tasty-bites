@@ -4,14 +4,14 @@ from cloudinary.models import CloudinaryField
 
 
 class Booking(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reservations')
     number_of_people = models.IntegerField()
     date = models.DateTimeField()
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     phone = models.CharField(max_length=25)
     email = models.EmailField()
-    message = models.CharField(max_length=250)
+    message = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
