@@ -3,15 +3,27 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 
+class Table(models.Model):
+    number = models.IntegerField(unique=True)
+    capacity = models.IntegerField()
+
+    def __str__(self):
+        return f'Table {self.number} ({self.capacity}p)'
+
+    class Meta:
+        ordering = ['number']
+
+
 class Booking(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reservations')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
+    table = models.ForeignKey(Table, on_delete=models.CASCADE, related_name='bookings', null=True)
     number_of_people = models.IntegerField()
     date = models.DateTimeField()
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     phone = models.CharField(max_length=25)
     email = models.EmailField()
-    message = models.TextField()
+    message = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
