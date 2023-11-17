@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Kalam:wght@300;400;700&family=Satisfy&display=swap"
+        rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -23,7 +23,7 @@
 
     <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-md bg-black bg-gradient">
+    <nav class="navbar navbar-expand-md navbar-bg bg-gradient">
         <div class="container-fluid">
             <a class="navbar-brand satisfy-font text-light" href="/">Tasty Bites</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -60,18 +60,63 @@
 
     <!-- Hero image -->
 
-    <div class="image-container">
+    <div class="image-container shadow">
         <img src="https://res.cloudinary.com/dpk2gl3yf/image/upload/v1699896390/restaurant3_ryzq8n.jpg" class="hero-image" alt="Image of restaurant table">
-        <div class="title position-absolute top-50 start-50 translate-middle text-light center">
+        <div class="title position-absolute top-50 start-50 translate-middle text-center">
             <h3>Welcome to</h3>
             <h1>Tasty Bites</h1>
-            <a href="#" class="btn btn-lg btn-light mt-4">Book now!</a>
+            <a href="#" class="btn book-btn mt-4">Book Reservation</a>
         </div>
     </div>
     
     {% block content %}
     {% endblock content %}
 
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 mt-4 p-4 shadow text-center menu">
+                <h2 class="fs-1"> Menu</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste minima distinctio dolore ipsa consequatur error! A cupiditate repellat rerum repudiandae nemo. Ut voluptatem impedit velit, voluptates ab reiciendis necessitatibus repudiandae!</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste minima distinctio dolore ipsa consequatur error! A
+                    cupiditate repellat rerum repudiandae nemo. Ut voluptatem impedit velit, voluptates ab reiciendis necessitatibus
+                    repudiandae!</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste minima distinctio dolore ipsa consequatur error! A
+                        cupiditate repellat rerum repudiandae nemo. Ut voluptatem impedit velit, voluptates ab reiciendis necessitatibus
+                        repudiandae!</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste minima distinctio dolore ipsa consequatur error! A
+                            cupiditate repellat rerum repudiandae nemo. Ut voluptatem impedit velit, voluptates ab reiciendis necessitatibus
+                            repudiandae!</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid mt-4">
+        <div class="row justify-content-center pt-3">
+            <div class="col-6 col-md-3 text-center">
+                <i class="fa-solid fa-location-dot"></i>
+                <p>2328 James Street<br>Rochester NY 14616<br>United States</p>
+            </div>
+            <div class="col-6 col-md-3 text-center">
+                <i class="fa-solid fa-phone"></i>
+                <p>585-621-4800</p>
+            </div>
+            <div class="col-6 col-md-3 text-center">
+                <i class="fa-solid fa-envelope"></i>
+                <p>contact@tastybites.com</p>
+            </div>
+            <div class="col-6 col-md-3 text-center">
+                <i class="fa-solid fa-clock"></i>
+                <p>Mon-Sun:<br>10:00-22:00</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 offset-2 text-center">
+                <p class="copyright">&copy; 2023 Ramona Broberg</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/76fb734834.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
