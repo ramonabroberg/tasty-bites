@@ -1,12 +1,43 @@
+/* General */
 body {
     background-color: #3d281a;
+    font-family: kalam, sans-serif;
 }
 
 .text-shadow {
     text-shadow: 2px 2px 4px #080808;
 }
 
-.navbar-bg {
+h1,
+h2,
+h3,
+.general-btn {
+    font-family: Satisfy, sans-serif;
+}
+
+.general-btn {
+    background-color: #e8c9ad;
+    color: #3d281a;
+    border: 2px solid #3d281a;
+    font-size: 25px;
+    padding: 4px 12px 0 12px;
+}
+
+.general-btn:hover,
+.general-btn:active {
+    background-color: #a9805c;
+    border: 2px solid #3d281a;
+    color: #e8c9ad;
+}
+
+.general_layout {
+    color: #e8c9ad;
+    background-color: #21150e;
+}
+
+/* Base */
+.navbar {
+    font-family: Courgette, sans-serif;
     background-color: #21150e;
 }
 
@@ -15,8 +46,8 @@ body {
     font-size: 25px;
 }
 
-.navbar-nav li {
-    font-family: Courgette, sans-serif;
+.user {
+    color: #e8c9ad;
 }
 
 .image-container {
@@ -34,10 +65,6 @@ body {
     padding: 0;
 }
 
-h1, h2, h3 {
-    font-family: Satisfy, sans-serif;
-}
-
 .title h1 {
     font-size: 100px;
     margin: 0;
@@ -47,21 +74,6 @@ h1, h2, h3 {
     color: #fff3e8;
 }
 
-.book-btn {
-    background-color: #e8c9ad;
-    color: #3d281a;
-    border: 2px solid #3d281a;
-    font-family: 'Satisfy';
-    font-size: 25px;
-    padding: 4px 12px 0 12px;
-}
-
-.menu {
-    color: #e8c9ad;
-    background-color: #21150e;
-    font-family: Courgette, sans-serif;
-}
-
 footer {
     color: #e8c9ad;
     background-color: #21150e;
@@ -69,15 +81,25 @@ footer {
 
 footer p {
     margin-bottom: 0;
-    font-family: Kalam, sans-serif;
 }
 
-i {
-    color: #b58b6f;
+.icon {
+    color: #fff3e8;
 }
 
 .copyright {
     margin-bottom: 5px;
     font-size: small;
     color: #937962;
+}
+
+/* Reservations */
+.reservation_list {
+    list-style-type: none;
+}
+
+/* Signup */
+.signup ul {
+    list-style-position: inside;
+    list-style-type: circle;
 }

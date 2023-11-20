@@ -3,24 +3,29 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        <div class="col-10 offset-1 col-md-8 offset-md-2 mt-4 p-4 shadow text-center menu">
-            <h1 class="fs-1">My Reservations</h1>
+        <div class="col-10 offset-1 col-md-8 offset-md-2 mt-4 p-4 shadow text-center general_layout">
+            <h1 class="fs-1 pb-4">My Reservations</h1>
             {% if bookings %}
-            <ul>
-                {% for booking in bookings %}
-                <li>
-                    <strong>Date: </strong> {{ booking.date }} <br>
-                    <strong>Name: </strong> {{ booking.first_name }} {{ booking.last_name }} <br>
-                    <strong>Number of people: </strong> {{ booking.number_of_people }} <br>
-                    <strong>Phone: </strong> {{ booking.phone }} <br>
-                    <strong>Email: </strong> {{ booking.email }} <br>
-                    <strong>Message: </strong> {{ booking.message }} <br>
-                    <em>Reservation made on: </em> {{ booking.created_on }}
-                </li>
-                {% endfor%}
+            <ul class="reservation_list">
+                <div class="row">
+                    {% for booking in bookings %}
+                    <div class="col-10 offset-1 col-md-6 offset-md-0">
+                        <li>
+                            {{ booking.date }}<br>
+                            {{ booking.number_of_people }} people<br>
+                            Name: {{ booking.first_name }} {{ booking.last_name }}<br>
+                            Phone: {{ booking.phone }}<br>
+                            Email: {{ booking.email }}<br>
+                            Message: {{ booking.message }}<br>
+                            Submitted on: {{ booking.created_on }}
+                        </li>
+                        <br>
+                    </div>
+                    {% endfor%}
+                </div>
             </ul>
             {% else %}
-            <h3>You have no reservations at this moment.</h3>
+            <p>You have no reservations at this moment.</p>
             {% endif %}
         </div>
     </div>

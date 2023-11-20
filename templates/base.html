@@ -23,7 +23,7 @@
 
     <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-md navbar-bg bg-gradient">
+    <nav class="navbar navbar-expand-md bg-gradient">
         <div class="container-fluid">
             <a class="navbar-brand satisfy-font text-light" href="/">Tasty Bites</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -47,13 +47,16 @@
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="{% url 'account_signup' %}">Register</a>
+                        <a class="nav-link text-light" href="{% url 'account_signup' %}">Sign Up</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="{% url 'account_login' %}?next={% url 'booking_form' %}">Login</a>
                     </li>
                     {% endif %}
                 </ul>
+                {% if user.is_authenticated %}
+                <p class="mb-2 mb-md-0 text-right user">Logged in as: {{ user.username }}</p>
+                {% endif %}
             </div>
         </div>
     </nav>
@@ -66,7 +69,7 @@
             <h3>Welcome to</h3>
             <h1>Tasty Bites</h1>
             {% if request.path != '/booking_form/' %}
-            <a href="{% url 'go_to_booking_page' %}" class="btn book-btn mt-4">Book Reservation</a>
+            <a href="{% url 'go_to_booking_page' %}" class="btn general-btn mt-4">Book Reservation</a>
             {% endif %}
         </div>
     </div>
@@ -77,19 +80,19 @@
     <footer class="container-fluid mt-4">
         <div class="row justify-content-center pt-3">
             <div class="col-6 col-md-3 text-center">
-                <i class="fa-solid fa-location-dot"></i>
+                <i class=" icon fa-solid fa-location-dot"></i>
                 <p>2328 James Street<br>Rochester NY 14616<br>United States</p>
             </div>
             <div class="col-6 col-md-3 text-center">
-                <i class="fa-solid fa-phone"></i>
+                <i class="icon fa-solid fa-phone"></i>
                 <p>585-621-4800</p>
             </div>
             <div class="col-6 col-md-3 text-center">
-                <i class="fa-solid fa-envelope"></i>
+                <i class="icon fa-solid fa-envelope"></i>
                 <p>contact@tastybites.com</p>
             </div>
             <div class="col-6 col-md-3 text-center">
-                <i class="fa-solid fa-clock"></i>
+                <i class="icon fa-solid fa-clock"></i>
                 <p>Mon-Sun:<br>10:00-22:00</p>
             </div>
         </div>

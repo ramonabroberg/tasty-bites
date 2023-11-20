@@ -1,34 +1,29 @@
 {% extends "base.html" %}
+
 {% load i18n %}
 {% load allauth account socialaccount %}
-{% block head_title %}
-    {% trans "Sign In" %}
-{% endblock head_title %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock head_title %}
+
 {% block content %}
-    {% element h1 %}
-        {% trans "Sign In" %}
-    {% endelement %}
-    <p>
-        {% blocktrans %}If you have not created an account yet, then please
-    <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
-    </p>
-    {% url 'account_login' as login_url %}
-    {% element form form=form method="post" action=login_url tags="entrance,login" %}
-        {% slot body %}
-            {% csrf_token %}
-            {% element fields form=form unlabeled=True %}
-            {% endelement %}
-            {% if redirect_field_value %}
-                <input type="hidden"
-                       name="{{ redirect_field_name }}"
-                       value="{{ redirect_field_value }}" />
-            {% endif %}
-        {% endslot %}
-        {% slot actions %}
-            {% element button type="submit" tags="prominent,login" %}
-                {% trans "Sign In" %}
-            {% endelement %}
-        {% endslot %}
-    {% endelement %}
-    {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-10 offset-1 col-md-8 offset-md-2 mt-4 p-4 shadow text-center general_layout">
+            <h1 class="fs-1">{% trans "Log In" %}</h1>
+            <p>
+            {% blocktrans %}You have to be logged in to book and see your reservations.<br>If you don't have an account you can easily register one by
+            clicking <a href="{{ signup_url }}">here</a>.{% endblocktrans %}</p>
+            <form class="login" method="POST" action="{% url 'account_login' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                <button class="btn general-btn" type="submit">{% trans "Log in now!" %}</button>
+            </form>
+        </div>
+    </div>
+</div>
+
 {% endblock content %}
