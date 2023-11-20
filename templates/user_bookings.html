@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-10 offset-1 col-md-8 offset-md-2 mt-4 p-4 shadow text-center menu">
+            <h1 class="fs-1">My Reservations</h1>
+            {% if bookings %}
+            <ul>
+                {% for booking in bookings %}
+                <li>
+                    <strong>Date: </strong> {{ booking.date }} <br>
+                    <strong>Name: </strong> {{ booking.first_name }} {{ booking.last_name }} <br>
+                    <strong>Number of people: </strong> {{ booking.number_of_people }} <br>
+                    <strong>Phone: </strong> {{ booking.phone }} <br>
+                    <strong>Email: </strong> {{ booking.email }} <br>
+                    <strong>Message: </strong> {{ booking.message }} <br>
+                    <em>Reservation made on: </em> {{ booking.created_on }}
+                </li>
+                {% endfor%}
+            </ul>
+            {% else %}
+            <h3>You have no reservations at this moment.</h3>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

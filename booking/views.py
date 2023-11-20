@@ -27,5 +27,5 @@ def booking_form(request):
 
 @login_required
 def user_bookings(request):
-    bookings = Booking.objects.filter(user=request.user)
+    bookings = Booking.objects.filter(user=request.user).order_by('date')
     return render(request, 'user_bookings.html', {'bookings': bookings})
