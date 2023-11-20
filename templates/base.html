@@ -43,14 +43,14 @@
                         <a class="nav-link text-light" href="#">Bookings</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Logout</a>
+                        <a class="nav-link text-light" href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Register</a>
+                        <a class="nav-link text-light" href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Login</a>
+                        <a class="nav-link text-light" href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -71,24 +71,6 @@
     
     {% block content %}
     {% endblock content %}
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-8 offset-md-2 mt-4 p-4 shadow text-center menu">
-                <h2 class="fs-1"> Menu</h1>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste minima distinctio dolore ipsa consequatur error! A cupiditate repellat rerum repudiandae nemo. Ut voluptatem impedit velit, voluptates ab reiciendis necessitatibus repudiandae!</p>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste minima distinctio dolore ipsa consequatur error! A
-                    cupiditate repellat rerum repudiandae nemo. Ut voluptatem impedit velit, voluptates ab reiciendis necessitatibus
-                    repudiandae!</p>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste minima distinctio dolore ipsa consequatur error! A
-                        cupiditate repellat rerum repudiandae nemo. Ut voluptatem impedit velit, voluptates ab reiciendis necessitatibus
-                        repudiandae!</p>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste minima distinctio dolore ipsa consequatur error! A
-                            cupiditate repellat rerum repudiandae nemo. Ut voluptatem impedit velit, voluptates ab reiciendis necessitatibus
-                            repudiandae!</p>
-            </div>
-        </div>
-    </div>
 
     <footer class="container-fluid mt-4">
         <div class="row justify-content-center pt-3">
