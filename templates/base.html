@@ -50,7 +50,7 @@
                         <a class="nav-link text-light" href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="{% url 'account_login' %}?next={% url 'booking_form' %}">Login</a>
+                        <a class="nav-link text-light" href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -65,7 +65,9 @@
         <div class="title position-absolute top-50 start-50 translate-middle text-center">
             <h3>Welcome to</h3>
             <h1>Tasty Bites</h1>
+            {% if request.path != '/booking_form/' %}
             <a href="{% url 'go_to_booking_page' %}" class="btn book-btn mt-4">Book Reservation</a>
+            {% endif %}
         </div>
     </div>
     

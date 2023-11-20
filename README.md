@@ -1,6 +1,6 @@
 # Tasty Bites
 
-Tasty Bites is a newly opened restaurant in Stockholm, Sweden. In just a few months, it has already managed to attract many food enthusiasts with its unique dishes and cozy atmosphere and has therefore created this website to spread the word.
+Tasty Bites is a newly opened restaurant in New York, USA. In just a few months, it has already managed to attract many food enthusiasts with its unique dishes and cozy atmosphere and has therefore created this website to spread the word.
 
 Tasty Bites is for the people who like to sit down and enjoy delicious food and create great memories. You need to be there to really understand the feeling of it all. On the website, users can make reservations and if something unexpected happens, it is easy to edit their reservation or cancel it completely. To make a reservation, the user needs to log in and if they don't already have an account, it is possible to quickly and easily register an account!
 
