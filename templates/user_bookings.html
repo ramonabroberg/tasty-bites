@@ -6,25 +6,24 @@
         <div class="col-10 offset-1 col-md-8 offset-md-2 mt-4 p-4 shadow text-center general_layout">
             <h1 class="fs-1 pb-4">My Reservations</h1>
             {% if bookings %}
-            <ul class="reservation_list">
-                <div class="row">
-                    {% for booking in bookings %}
-                    <div class="col-10 offset-1 col-md-6 offset-md-0">
-                        <li>
-                            {{ booking.date }}<br>
-                            {{ booking.number_of_people }} people<br>
-                            Name: {{ booking.first_name }} {{ booking.last_name }}<br>
-                            Phone: {{ booking.phone }}<br>
-                            Email: {{ booking.email }}<br>
-                            Message: {{ booking.message }}<br>
-                            Submitted on: {{ booking.created_on }}
-                        </li>
-                        <br>
+            <div class="row">
+                {% for booking in bookings %}
+                <div class="col-10 offset-1 col-md-6 offset-md-0">
+                        {{ booking.date }}<br>
+                        {{ booking.number_of_people }} people<br>
+                        Name: {{ booking.first_name }} {{ booking.last_name }}<br>
+                        Phone: {{ booking.phone }}<br>
+                        Email: {{ booking.email }}<br>
+                        Message: {{ booking.message }}<br>
+                        Submitted on: {{ booking.created_on }}
+                    <br>
+                    <div class="mt-3 mb-5">
+                        <a class="btn close-btn" href="{% url 'delete_booking' booking.id %}">Delete</a>
                         <a class="btn general-btn" href="{% url 'edit_booking' booking.id %}">Edit</a>
                     </div>
-                    {% endfor%}
                 </div>
-            </ul>
+                {% endfor%}
+            </div>
             {% else %}
             <p>You have no reservations at this moment.</p>
             {% endif %}

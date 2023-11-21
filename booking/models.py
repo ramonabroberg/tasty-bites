@@ -27,6 +27,9 @@ class Booking(models.Model):
     message = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
 
+    def delete_booking(self):
+        self.delete()
+
     def __str__(self):
         return f'{self.first_name} {self.last_name} - {self.date} ({self.number_of_people} people)'
 
