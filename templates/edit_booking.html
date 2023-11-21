@@ -10,8 +10,8 @@
             <form method="POST" action="{% url 'edit_booking' booking.id %}">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <a href="{% url 'user_bookings' %}" class="btn close-btn">Close</a>
-                <button type="submit" class="btn general-btn">Update</button>
+                <a href="{% url 'user_bookings' %}" class="btn close-btn" aria-label="Close">Close</a>
+                <button type="submit" class="btn general-btn" aria-label="Update">Update</button>
             </form>
         </div>
     </div>

@@ -10,7 +10,7 @@
             <form action="{% url 'booking_form' %}" method="POST">
                 {% csrf_token %}
                 {{ form.as_p}}
-                <button class="btn general-btn" type="submit">Submit</button>
+                <button class="btn general-btn" type="submit" aria-label="Book now!">Book now!</button>
             </form>
         </div>
     </div>

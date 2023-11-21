@@ -24,8 +24,8 @@
 
                     <!-- Buttons to edit and delete each booking -->
                     <div class="mt-3 mb-5">
-                        <a class="btn close-btn" href="{% url 'delete_booking' booking.id %}">Delete</a>
-                        <a class="btn general-btn" href="{% url 'edit_booking' booking.id %}">Edit</a>
+                        <a class="btn close-btn" href="{% url 'delete_booking' booking.id %}" aria-label="Delete">Delete</a>
+                        <a class="btn general-btn" href="{% url 'edit_booking' booking.id %}" aria-label="Edit">Edit</a>
                     </div>
                 </div>
                 {% endfor%}
