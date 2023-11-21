@@ -16,8 +16,10 @@ class Table(models.Model):
 
 
 class Booking(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
-    table = models.ForeignKey(Table, on_delete=models.CASCADE, related_name='bookings', null=True)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='bookings')
+    table = models.ForeignKey(
+        Table, on_delete=models.CASCADE, related_name='bookings', null=True)
     number_of_people = models.IntegerField()
     date = models.DateTimeField()
     first_name = models.CharField(max_length=50)
@@ -31,7 +33,10 @@ class Booking(models.Model):
         self.delete()
 
     def __str__(self):
-        return f'{self.first_name} {self.last_name} - {self.date} ({self.number_of_people} people)'
+        return (
+            f'{self.first_name} {self.last_name} - '
+            f'{self.date} ({self.number_of_people} people)'
+        )
 
     class Meta:
         ordering = ['date']

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .models import Booking
 from .forms import BookingForm
 
@@ -44,11 +45,14 @@ def edit_booking(request, booking_id):
     else:
         form = BookingForm(instance=booking)
 
-    return render(request, 'edit_booking.html', {'form': form, 'booking': booking})
+    return render(
+        request, 'edit_booking.html', {'form': form, 'booking': booking}
+    )
+
 
 @login_required
 def delete_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id, user=request.user)
-    booking.delete_booking()
+    booking.delete()
     messages.success(request, 'The reservation has been deleted successfully.')
     return redirect('user_bookings')
