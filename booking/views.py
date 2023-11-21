@@ -54,5 +54,6 @@ def edit_booking(request, booking_id):
 def delete_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id, user=request.user)
     booking.delete()
-    messages.success(request, 'The reservation has been deleted successfully.')
+
+    messages.success(request, 'Your reservation is successfully deleted!')
     return redirect('user_bookings')

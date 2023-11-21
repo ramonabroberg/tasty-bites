@@ -1,4 +1,4 @@
-/* General */
+/* General styles */
 body {
     background-color: #3d281a;
     font-family: kalam, sans-serif;
@@ -49,7 +49,7 @@ h3,
     background-color: #21150e;
 }
 
-/* Base */
+/* base.html */
 .navbar {
     font-family: Courgette, sans-serif;
     background-color: #21150e;
@@ -107,12 +107,12 @@ footer p {
     color: #937962;
 }
 
-/* Reservations */
+/* user_bookings.html */
 .reservation_list {
     list-style-type: none;
 }
 
-/* Signup */
+/* signup.html */
 .signup ul {
     list-style-position: inside;
     list-style-type: circle;
