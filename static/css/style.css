@@ -11,7 +11,8 @@ body {
 h1,
 h2,
 h3,
-.general-btn {
+.general-btn,
+.close-btn {
     font-family: Satisfy, sans-serif;
 }
 
@@ -26,8 +27,21 @@ h3,
 .general-btn:hover,
 .general-btn:active {
     background-color: #a9805c;
-    border: 2px solid #3d281a;
     color: #e8c9ad;
+}
+
+.close-btn {
+    background-color: #3d281a;
+    color: #e8c9ad;
+    border: 2px solid #3d281a;
+    font-size: 25px;
+    padding: 4px 12px 0 12px;
+}
+
+.close-btn:hover,
+.close-btn:active {
+    background-color: #a9805c;
+    color: #3d281a;
 }
 
 .general_layout {

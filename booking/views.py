@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.contrib.auth.decorators import login_required
 from .models import Booking
@@ -29,3 +29,19 @@ def booking_form(request):
 def user_bookings(request):
     bookings = Booking.objects.filter(user=request.user).order_by('date')
     return render(request, 'user_bookings.html', {'bookings': bookings})
+
+
+@login_required
+def edit_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+
+    if request.method == 'POST':
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+            return redirect('user_bookings')
+
+    else:
+        form = BookingForm(instance=booking)
+
+    return render(request, 'edit_booking.html', {'form': form, 'booking': booking})

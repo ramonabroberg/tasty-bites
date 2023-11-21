@@ -33,6 +33,8 @@ ALLOWED_HOSTS = ['tasty-bites-rb-427304cf20b7.herokuapp.com', '8000-ramonabrober
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
+TIME_ZONE = 'Europe/Stockholm'
+
 # Application definition
 
 INSTALLED_APPS = [

@@ -20,6 +20,7 @@
                             Submitted on: {{ booking.created_on }}
                         </li>
                         <br>
+                        <a class="btn general-btn" href="{% url 'edit_booking' booking.id %}">Edit</a>
                     </div>
                     {% endfor%}
                 </div>

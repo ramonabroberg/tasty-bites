@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-10 offset-1 col-md-8 offset-md-2 mt-4 p-4 shadow text-center general_layout">
+            <h1 class="fs-1 pb-4">Edit Reservation</h1>
+            <form method="POST" action="{% url 'edit_booking' booking.id %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <a href="{% url 'user_bookings' %}" class="btn close-btn">Close</a>
+                <button type="submit" class="btn general-btn">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
