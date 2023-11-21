@@ -40,6 +40,7 @@ def edit_booking(request, booking_id):
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Reservation updated successfully!')
             return redirect('user_bookings')
 
     else:
@@ -55,5 +56,5 @@ def delete_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id, user=request.user)
     booking.delete()
 
-    messages.success(request, 'Your reservation is successfully deleted!')
+    messages.success(request, 'Your reservation is now deleted!')
     return redirect('user_bookings')
