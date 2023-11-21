@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<!-- User bookings page -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-10 offset-1 col-md-8 offset-md-2 mt-4 p-4 shadow text-center general_layout">
             <h1 class="fs-1 pb-4">My Reservations</h1>
+
+            <!-- If the user has bookings they will display as a list -->
             {% if bookings %}
             <div class="row">
                 {% for booking in bookings %}
@@ -17,6 +21,8 @@
                         Message: {{ booking.message }}<br>
                         Submitted on: {{ booking.created_on }}
                     <br>
+
+                    <!-- Buttons to edit and delete each booking -->
                     <div class="mt-3 mb-5">
                         <a class="btn close-btn" href="{% url 'delete_booking' booking.id %}">Delete</a>
                         <a class="btn general-btn" href="{% url 'edit_booking' booking.id %}">Edit</a>
@@ -24,6 +30,8 @@
                 </div>
                 {% endfor%}
             </div>
+
+            <!-- If the user don't have any booknigs this message will show -->
             {% else %}
             <p>You have no reservations at this moment.</p>
             {% endif %}
