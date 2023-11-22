@@ -14,6 +14,3 @@ class BookingForm(forms.ModelForm):
             'email',
             'message',
         ]
-        widgets = {
-            'date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
-        }
