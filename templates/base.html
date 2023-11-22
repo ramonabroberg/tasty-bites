@@ -20,109 +20,131 @@
     <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
 </head>
 <body>
+    <main>
 
-    <!-- Navigation -->
-    <header>
-        <nav class="navbar navbar-expand-md bg-gradient fixed-top">
-            <div class="container-fluid">
-                <a class="navbar-brand satisfy-font text-light" href="/">Tasty Bites</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" aria-current="page" href="{% url 'home' %}">Home</a>
-                        </li>
+        <!-- Navigation -->
+        <header>
+            <nav class="navbar navbar-expand-md bg-gradient fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand text-light" href="/">Tasty Bites</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa-solid fa-bars navbar-icon"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                            <li class="nav-item">
+                                <a class="nav-link text-light" aria-current="page" href="{% url 'home' %}">Home</a>
+                            </li>
+                            {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="{% url 'booking_form' %}">Book Reservation</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="{% url 'user_bookings' %}">Reservations</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="{% url 'account_logout' %}">Logout</a>
+                            </li>
+                            {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="{% url 'account_signup' %}">Sign Up</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="{% url 'account_login' %}?next={% url 'booking_form' %}">Login</a>
+                            </li>
+                            {% endif %}
+                        </ul>
                         {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="{% url 'booking_form' %}">Book Reservation</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="{% url 'user_bookings' %}">Reservations</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="{% url 'account_logout' %}">Logout</a>
-                        </li>
-                        {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="{% url 'account_signup' %}">Sign Up</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="{% url 'account_login' %}?next={% url 'booking_form' %}">Login</a>
-                        </li>
+                        <p class="mb-2 mb-md-0 text-right user">Logged in as: {{ user.username }}</p>
                         {% endif %}
-                    </ul>
-                    {% if user.is_authenticated %}
-                    <p class="mb-2 mb-md-0 text-right user">Logged in as: {{ user.username }}</p>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Hero image -->
+            <div class="image-container shadow">
+                <img src="https://res.cloudinary.com/dpk2gl3yf/image/upload/v1699896390/restaurant3_ryzq8n.jpg" class="hero-image" alt="Image taken inside of a restaurant">
+                <div class="title position-absolute top-50 start-50 translate-middle text-center">
+                    <h3>Welcome to</h3>
+                    <h1>Tasty Bites</h1>
+                    {% if request.path != '/booking_form/' %}
+                    <a href="{% url 'go_to_booking_page' %}" class="btn general-btn mt-4">Book Reservation</a>
                     {% endif %}
                 </div>
             </div>
-        </nav>
+        </header>
 
-        <!-- Hero image -->
-        <div class="image-container shadow">
-            <img src="https://res.cloudinary.com/dpk2gl3yf/image/upload/v1699896390/restaurant3_ryzq8n.jpg" class="hero-image" alt="Image taken inside of a restaurant">
-            <div class="title position-absolute top-50 start-50 translate-middle text-center">
-                <h3>Welcome to</h3>
-                <h1>Tasty Bites</h1>
-                {% if request.path != '/booking_form/' %}
-                <a href="{% url 'go_to_booking_page' %}" class="btn general-btn mt-4">Book Reservation</a>
-                {% endif %}
-            </div>
-        </div>
-    </header>
-
-    <!-- Alert messages -->
-    {% if messages %}
-    <div class="row">
-        <div class="col-10 offset-1 col-md-8 offset-md-2 mt-3">
-            {% for message in messages %}
-            <div class="mb-0 alert {{ message.tags }} alert-dismissible fade show" id="message" role="alert">
-                {{ message | safe }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-    {% endif %}
-    
-    {% block content %}
-    <!-- Content goes here -->
-    {% endblock content %}
-
-    <!-- Footer -->
-    <footer class="container-fluid mt-4">
-        <div class="row justify-content-center pt-3">
-            <div class="col-6 col-md-3 text-center">
-                <i class=" icon fa-solid fa-location-dot" aria-label="Address"></i>
-                <p>2328 James Street<br>Rochester NY 14616<br>United States</p>
-            </div>
-            <div class="col-6 col-md-3 text-center">
-                <i class="icon fa-solid fa-phone" aria-label="Phone number"></i>
-                <p>585-621-4800</p>
-            </div>
-            <div class="col-6 col-md-3 text-center">
-                <i class="icon fa-solid fa-envelope" aria-label="Email address"></i>
-                <p>contact@tastybites.com</p>
-            </div>
-            <div class="col-6 col-md-3 text-center">
-                <i class="icon fa-solid fa-clock" aria-label="Opening hours"></i>
-                <p>Mon-Sun:<br>10:00-22:00</p>
-            </div>
-        </div>
+        <!-- Alert messages -->
+        {% if messages %}
         <div class="row">
-            <div class="col-8 offset-2 text-center">
-                <p aria-label="Copyright" class="copyright">&copy; 2023 Ramona Broberg</p>
+            <div class="col-10 offset-1 col-md-8 offset-md-2 mt-3">
+                {% for message in messages %}
+                <div class="mb-0 alert {{ message.tags }} alert-dismissible fade show" id="message" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
             </div>
         </div>
-    </footer>
+        {% endif %}
+        
+        {% block content %}
+        <!-- Content goes here -->
+        {% endblock content %}
 
-    <script src="https://kit.fontawesome.com/76fb734834.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-    <script src="{% static 'js/script.js' %}"></script>
+        <!-- Carousel gallery -->
+        <div>
+            <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://res.cloudinary.com/dpk2gl3yf/image/upload/v1700685407/zahrin-lukman-VSNoQdimlQQ-unsplash_sbj9fl.jpg"
+                            class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://res.cloudinary.com/dpk2gl3yf/image/upload/v1700687543/anna-peipina-hLx3QC71kzk-unsplash_ajtwxs.jpg"
+                            class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://res.cloudinary.com/dpk2gl3yf/image/upload/v1700687114/janko-ferlic-h9Iq22JJlGk-unsplash_zi90fe.jpg"
+                            class="d-block w-100" alt="...">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="container-fluid mt-4">
+            <div class="row justify-content-center pt-3">
+                <div class="col-6 col-md-3 text-center">
+                    <i class=" icon fa-solid fa-location-dot" aria-label="Address"></i>
+                    <p>2328 James Street<br>Rochester NY 14616<br>United States</p>
+                </div>
+                <div class="col-6 col-md-3 text-center">
+                    <i class="icon fa-solid fa-phone" aria-label="Phone number"></i>
+                    <p>585-621-4800</p>
+                </div>
+                <div class="col-6 col-md-3 text-center">
+                    <i class="icon fa-solid fa-envelope" aria-label="Email address"></i>
+                    <p>contact@tastybites.com</p>
+                </div>
+                <div class="col-6 col-md-3 text-center">
+                    <i class="icon fa-solid fa-clock" aria-label="Opening hours"></i>
+                    <p>Mon-Sun:<br>10:00-22:00</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8 offset-2 text-center">
+                    <p aria-label="Copyright" class="copyright">&copy; 2023 Ramona Broberg</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://kit.fontawesome.com/76fb734834.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+        <script src="{% static 'js/script.js' %}"></script>
+    </main>
 </body>
 </html>

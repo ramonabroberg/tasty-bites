@@ -13,9 +13,19 @@
                 {% blocktrans %}Already have an account? Then please login <a href="{{ login_url }}">here</a>.{% endblocktrans %}
             </p>
 
+            {% if form.errors %}
+            <div class="alert alert-danger col-10 offset-1 col-md-8 offset-md-2">
+                <strong>{% trans 'There was an error:' %}</strong>
+                <ul class="alert-message p-0 mb-0">
+                    {% for error in form.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
             <form class="signup" method="POST" action="/accounts/signup/">
-                <input type="hidden" name="csrfmiddlewaretoken"
-                    value="3diukWdHpzMnMxutrnnXIOju72mpzySm8u7DGu7yASFSy2e6jbPhEozJ7SMYyrfu">
+                {% csrf_token %}
                 <p><label for="id_username">Username:</label><br><input type="text" name="username" placeholder="Username"
                         autocomplete="username" minlength="1" maxlength="150" required id="id_username"></p>
                 <p><label for="id_email">Email (optional):</label><br><input type="email" name="email" placeholder="Email address"
@@ -25,7 +35,7 @@
                 <p><label for="id_password2">Password (again):</label><br><input type="password" name="password2"
                         placeholder="Password (again)" autocomplete="new-password" required id="id_password2"></p>
                     <span class="helptext">
-                        <ul>
+                        <ul class="p-0">
                             <li>Your password can’t be too similar to your other personal information.</li>
                             <li>Your password must contain at least 8 characters.</li>
                             <li>Your password can’t be a commonly used password.</li>
