@@ -1,7 +1,7 @@
 /* General styles */
 body {
     background-color: #3d281a;
-    font-family: kalam, sans-serif;
+    font-family: Satisfy, sans-serif;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -12,17 +12,12 @@ body {
     text-shadow: 2px 2px 4px #080808;
 }
 
-h1,
-h2,
-h3,
-.general-btn,
-.close-btn {
-    font-family: Satisfy, sans-serif;
+h2 {
+    font-size: 35px;
 }
 
-h4 {
-    font-size: 18px;
-    font-family: 'Courgette', sans-serif;
+h4, p {
+    font-family: kalam, sans-serif;
 }
 
 .general-btn {
@@ -86,6 +81,7 @@ h4 {
 
 .user {
     color: #e8c9ad;
+    font-family: courgette, sans-serif;
 }
 
 .image-container {
@@ -109,13 +105,18 @@ h4 {
     margin: 0;
 }
 
-.title h1, h3 {
+.title h1, h3, span {
     color: #fff3e8;
+}
+
+.title span {
+    font-size: 18px;
+    font-family: 'Courgette', sans-serif;
 }
 
 .carousel-inner {
     height: 250px;
-    margin-bottom: 200px;
+    margin-bottom: 210px;
     width: 100%;
     overflow: hidden;
 }
@@ -143,9 +144,8 @@ footer p {
 }
 
 .copyright {
-    margin-bottom: 5px;
+    margin: 20px 0 5px 0;
     font-size: small;
-    color: #937962;
 }
 
 /* user_bookings.html */
@@ -178,8 +178,12 @@ footer p {
         font-size: 85px;
     }
 
+    h2 {
+        font-size: 45px;
+    }
+
     .carousel-inner {
-        margin-bottom: 135px;
+        margin-bottom: 150px;
     }
 }
 
