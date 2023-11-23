@@ -9,7 +9,20 @@
             <h1 class="fs-1">Book Reservation</h1>
             <form action="{% url 'booking_form' %}" method="POST">
                 {% csrf_token %}
-                {{ form.as_p}}
+                <p><label for="{{ form.date.id_for_label }}">Date: </label><br>
+                {{ form.date }}</p>
+                <p><label for="{{ form.number_of_people.id_for_label }}">Number of people: </label><br>
+                {{ form.number_of_people }}</p>
+                <p><label for="{{ form.first_name.id_for_label }}">First name: </label><br>
+                {{ form.first_name }}</p>
+                <p><label for="{{ form.last_name.id_for_label }}">Last name: </label><br>
+                {{ form.last_name }}</p>
+                <p><label for="{{ form.phone.id_for_label }}">Phone: </label><br>
+                {{ form.phone }}</p>
+                <p><label for="{{ form.email.id_for_label }}">Email: </label><br>
+                <input type="email" name="{{ form.email.name }}" id="{{ form.email.id_for_label }}" placeholder="(optional)"></p>
+                <p><label for="{{ form.message.id_for_label }}">Message: </label><br>
+                <textarea name="{{ form.message.name }}" id="{{ form.message.id_for_label }}" cols="24" rows="4" placeholder="(optional)"></textarea></p>
                 <button class="btn general-btn" type="submit" aria-label="Book now!">Book now!</button>
             </form>
         </div>
