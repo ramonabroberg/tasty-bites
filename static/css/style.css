@@ -153,6 +153,10 @@ footer p {
     list-style-type: none;
 }
 
+.booking {
+    font-family: kalam, sans-serif;
+}
+
 /* signup.html */
 .signup ul {
     list-style-position: inside;

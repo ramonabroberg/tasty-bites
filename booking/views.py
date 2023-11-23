@@ -19,7 +19,10 @@ def booking_form(request):
             booking = form.save(commit=False)
             booking.user = request.user
             booking.save()
+            messages.success(request, 'Reservation booked successfully!')
             return redirect('user_bookings')
+        else:
+            return render(request, 'booking_form.html', {'form': form})
     else:
         form = BookingForm()
 
