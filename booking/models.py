@@ -27,7 +27,7 @@ class Booking(models.Model):
     phone = models.CharField(max_length=25)
     email = models.EmailField(blank=True)
     message = models.TextField(blank=True)
-    created_on = models.DateTimeField(auto_now_add=True)
+    created_on = models.DateTimeField(default=timezone.now)
 
     def delete_booking(self):
         self.delete()
