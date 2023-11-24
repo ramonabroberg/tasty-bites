@@ -9,7 +9,7 @@
             <h1 class="fs-1">Book Reservation</h1>
 
             {% if form.errors %}
-            <div class="alert alert-danger col-md-10 offset-md-1 col-lg-6 offset-lg-3">
+            <div class="alert text-center alert-danger col-md-10 offset-md-1 col-lg-6 offset-lg-3">
                 <strong>Error: </strong><br>
                 {{ form.non_field_errors }}
                 {% for field in form %}

@@ -7,9 +7,40 @@
     <div class="row">
         <div class="col-10 offset-1 col-md-8 offset-md-2 mt-4 p-4 shadow text-center general_layout">
             <h1 class="fs-1 pb-4">Edit Reservation</h1>
+
+            {% if form.errors %}
+            <div class="alert alert-danger col-md-10 offset-md-1 col-lg-6 offset-lg-3">
+                <strong>Error: </strong><br>
+                {{ form.non_field_errors }}
+                {% for field in form %}
+                <ul class="list">
+                    {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endfor %}
+            </div>
+            {% endif %}
+
             <form method="POST" action="{% url 'edit_booking' booking.id %}">
                 {% csrf_token %}
-                {{ form.as_p }}
+                <p><label for="{{ form.date.id_for_label }}">Date: </label><br>
+                    {{ form.date }}</p>
+                <p><label for="{{ form.number_of_people.id_for_label }}">Number of people: </label><br>
+                    {{ form.number_of_people }}</p>
+                <p><label for="{{ form.first_name.id_for_label }}">First name: </label><br>
+                    {{ form.first_name }}</p>
+                <p><label for="{{ form.last_name.id_for_label }}">Last name: </label><br>
+                    {{ form.last_name }}</p>
+                <p><label for="{{ form.phone.id_for_label }}">Phone: </label><br>
+                    {{ form.phone }}</p>
+                <p><label for="{{ form.email.id_for_label }}">Email: </label><br>
+                    <input type="email" name="{{ form.email.name }}" id="{{ form.email.id_for_label }}" placeholder="(optional)">
+                </p>
+                <p><label for="{{ form.message.id_for_label }}">Message: </label><br>
+                    <textarea name="{{ form.message.name }}" id="{{ form.message.id_for_label }}" cols="24" rows="4"
+                        placeholder="(optional)"></textarea>
+                </p>
                 <a href="{% url 'user_bookings' %}" class="btn close-btn" aria-label="Close">Close</a>
                 <button type="submit" class="btn general-btn" aria-label="Update">Update</button>
             </form>
