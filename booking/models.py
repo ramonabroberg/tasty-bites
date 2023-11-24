@@ -20,8 +20,8 @@ class Booking(models.Model):
         User, on_delete=models.CASCADE, related_name='bookings')
     table = models.ForeignKey(
         Table, on_delete=models.CASCADE, related_name='bookings', null=True)
-    number_of_people = models.IntegerField()
     date = models.DateTimeField()
+    number_of_people = models.IntegerField()
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     phone = models.CharField(max_length=25)

@@ -10,28 +10,28 @@
 
             <!-- If the user has bookings they will display as a list -->
             {% if bookings %}
-            <div class="row booking">
-                {% for booking in bookings %}
-                <div class="col-10 offset-1 col-md-6 offset-md-0">
-                        {{ booking.date }}<br>
-                        {{ booking.number_of_people }} people<br>
-                        Name: {{ booking.first_name }} {{ booking.last_name }}<br>
-                        Phone: {{ booking.phone }}<br>
-                        Email: {{ booking.email }}<br>
-                        Message: {{ booking.message }}<br>
+                <div class="row booking">
+                    {% for booking in bookings %}
+                        <div class="col-10 offset-1 col-md-6 offset-md-0">
+                                {{ booking.date }}<br>
+                                {{ booking.number_of_people }} people<br>
+                                Name: {{ booking.first_name }} {{ booking.last_name }}<br>
+                                Phone: {{ booking.phone }}<br>
+                                Email: {{ booking.email }}<br>
+                                Message: {{ booking.message }}<br>
 
-                    <!-- Buttons to edit and delete each booking -->
-                    <div class="mt-3 mb-5">
-                        <a class="btn close-btn" href="{% url 'delete_booking' booking.id %}" aria-label="Delete">Delete</a>
-                        <a class="btn general-btn" href="{% url 'edit_booking' booking.id %}" aria-label="Edit">Edit</a>
-                    </div>
+                            <!-- Buttons to edit and delete the bookings -->
+                            <div class="mt-3 mb-5">
+                                <a class="btn close-btn" href="{% url 'delete_booking' booking.id %}" aria-label="Delete">Delete</a>
+                                <a class="btn general-btn" href="{% url 'edit_booking' booking.id %}" aria-label="Edit">Edit</a>
+                            </div>
+                        </div>
+                    {% endfor%}
                 </div>
-                {% endfor%}
-            </div>
 
-            <!-- If the user don't have any booknigs this message will show -->
-            {% else %}
-            <p>You have no reservations at this moment.</p>
+                <!-- Message if the user don't have any bookings -->
+                {% else %}
+                <p>You have no reservations at this moment.</p>
             {% endif %}
         </div>
     </div>

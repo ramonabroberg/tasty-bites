@@ -9,11 +9,11 @@
     <div class="row">
         <div class="col-10 offset-1 col-md-8 offset-md-2 mt-4 p-5 shadow text-center general_layout">
             <h1 class="fs-1">{% trans "Logout" %}</h1>
-            <p>{% trans 'Are you sure you want to logout?' %}</p>
+            <p>Are you sure you want to logout?</p>
             <form method="POST" action="{% url 'account_logout' %}">
                 {% csrf_token %}
                 {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
                 <button class="btn general-btn" type="submit">{% trans "Yes, please!" %}</button>
             </form>

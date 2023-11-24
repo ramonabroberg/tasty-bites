@@ -32,6 +32,14 @@ class BookingForm(forms.ModelForm):
         number_of_people = self.cleaned_data.get('number_of_people')
 
         if number_of_people < 1:
-            raise forms.ValidationError('Number of people must be at least 1.')
+            raise forms.ValidationError('Number of people must be 1 or more.')
 
         return number_of_people
+
+    def clean_phone(self):
+        phone = self.cleaned_data.get('phone')
+
+        if not phone.isdigit():
+            raise forms.ValidationError('Phone must contain only numbers.')
+
+        return phone

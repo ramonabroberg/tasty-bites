@@ -59,6 +59,11 @@ h4, p {
     list-style-position: inside;
 }
 
+.list {
+    list-style-position: inside;
+    list-style-type: circle;
+}
+
 /* base.html */
 .navbar {
     font-family: Courgette, sans-serif;
@@ -148,6 +153,11 @@ footer p {
     font-size: small;
 }
 
+/* booking_form.html */
+.alert {
+    font-family: kalam, sans-serif;
+}
+
 /* user_bookings.html */
 .reservation_list {
     list-style-type: none;
@@ -155,12 +165,6 @@ footer p {
 
 .booking {
     font-family: kalam, sans-serif;
-}
-
-/* signup.html */
-.signup ul {
-    list-style-position: inside;
-    list-style-type: circle;
 }
 
 @media screen and (min-width: 576px) {

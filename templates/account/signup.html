@@ -14,14 +14,14 @@
             </p>
 
             {% if form.errors %}
-            <div class="alert alert-danger col-10 offset-1 col-md-8 offset-md-2">
-                <strong>{% trans 'There was an error:' %}</strong>
-                <ul class="alert-message p-0 mb-0">
-                    {% for error in form.errors %}
-                    <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
+                <div class="alert alert-danger col-10 offset-1 col-md-8 offset-md-2">
+                    <strong>There was an error: </strong>
+                    <ul class="list alert-message p-0 mb-0">
+                        {% for error in form.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
             {% endif %}
 
             <form class="signup" method="POST" action="/accounts/signup/">
