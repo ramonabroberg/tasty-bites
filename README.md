@@ -164,7 +164,26 @@ The third page while logged in is where the user can see the booked reservations
 - The new changes are showing correctly on the page.
 - Both changes and deletions also happens in admin mode.
 
+### Sign Up
 
+- The Sign Up page works good and as planned.
+- The link to the Login page works correctly.
+- The email field is optional and that is true.
+
+### Login
+
+- The Login page works good and as planned.
+- The link to the Sign Up page works well.
+- The user has to enter the user details correct to be able to log in.
+
+### Logout
+
+- The Logout menu option leads to the Logout page.
+- The button works so the user gets logged out by clicking on it.
+
+### __Lighthouse__
+
+![Lighthouse information](https://res.cloudinary.com/dpk2gl3yf/image/upload/v1700799394/lighthouse_xvn5bi.png)
 
 # Wireframe
 
@@ -173,3 +192,43 @@ The third page while logged in is where the user can see the booked reservations
 # Diagram
 
 ![Diagram](readme/diagram.png)
+
+# Color palette
+
+![Color palette](https://res.cloudinary.com/dpk2gl3yf/image/upload/v1700803873/colors_brijas.png)
+
+# Bugs
+
+Bugs I have solved:
+
+- I got the error message "Disallowed host" even though I had put it in. I erased it and filled it in again and then it worked.
+- I got stuck on an error when I made the model class Table and chose to have "number" as an integerfield but added default="X". It took some time to come around it but finally I went back to an earlier migration which fixed it.
+- I didn't get the widget to work so I could have a picker as my DateTimeField but then I realised that I hadn't put the widget in the meta class so when I changed that it worked.
+
+# Deployment
+
+The site was deployed using the following steps:
+
+1. Change "DEBUG = True" to "DEBUG = False" in the settings.py file.
+2. Add the following to the same file: X_FRAME_OPTIONS = 'SAMEORIGIN'.
+3. Push to GitHub.
+4. Log in on Heroku and click on the app.
+5. Click on the "Settings" tab and then on "Reveal Config Vars".
+6. Delete "DISABLE_COLLECTSTATIC = 1" from the list.
+7. Now click on the tab "Deploy" and then on the button "Deploy Branch" at the bottom of the page.
+8. When it's deployed, you can click on "Open App" and see it live.
+
+# Credits
+
+- This website is powered by Django, a high-level Python web framework.
+- This website uses Bootstrap, a front-end framework for building responsive and mobile-first websites.
+- Images on this website are hosted and managed by Cloudinary.
+- The images themselves are from unsplash:
+  - Photo by [Anna Peipina](https://unsplash.com/@saules_art?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/brown-star-ornament-on-black-surface-Js05xQ5TLUw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+  - Photo by [🇸🇮 Janko Ferlič](https://unsplash.com/@itfeelslikefilm?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/brown-coffee-beans-beside-white-ceramic-mug-h9Iq22JJlGk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+  - Photo by [Zahrin Lukman](https://unsplash.com/@zahrinlukman?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/sliced-food-additives-on-brown-cutting-board-VSNoQdimlQQ?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+- Fonts are from [Google Fonts](https://fonts.google.com/).
+- Icons are from [Font Awesome](https://fontawesome.com/).
+- Color palette were made on [Coolors.co](https://coolors.co/).
+- Wireframe was created using [Balsamiq](https://balsamiq.com/wireframes/).
+- I have taken inspiration from [Code Institute's](https://codeinstitute.net/) earlier projects to get started and to figure out some questions.
