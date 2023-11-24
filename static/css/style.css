@@ -64,6 +64,11 @@ h4, p {
     list-style-type: circle;
 }
 
+.list-text {
+    font-family: 'Kalam', sans-serif;
+    color: #e8c9ad;
+}
+
 /* base.html */
 .navbar {
     font-family: Courgette, sans-serif;

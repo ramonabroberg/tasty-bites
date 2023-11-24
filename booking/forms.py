@@ -19,7 +19,7 @@ class BookingForm(forms.ModelForm):
         widgets = {
             'date': forms.TextInput(attrs={'type': 'datetime-local'}),
         }
-    
+
     def clean_date(self):
         date = self.cleaned_data.get('date')
 
